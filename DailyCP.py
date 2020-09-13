@@ -261,8 +261,7 @@ class DailyCP:
             form = self.getCollectorFormFiled(
                 detail["collector"]["formWid"], detail["collector"]["wid"])
 
-            formpath = "{dbpath}/{charac}.json".format(
-                charac=self.getFormCharac(item), dbpath=dbpath)
+            formpath = "{dbpath}/4cc2c536dfa005022cbf3e8e8192f09d.json".format(dbpath=dbpath)
             print(formpath)
             if os.path.exists(formpath):
                 with open(formpath, "rb") as file:
