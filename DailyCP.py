@@ -260,8 +260,9 @@ class DailyCP:
             detail = self.getCollectorDetail(item["wid"])
             form = self.getCollectorFormFiled(
                 detail["collector"]["formWid"], detail["collector"]["wid"])
-
-            formpath = "{dbpath}/4cc2c536dfa005022cbf3e8e8192f09d.json".format(dbpath=dbpath)
+            form_str = json.dumps(form)
+            form_hash  = hashlib.md5(form_str.encode('utf-8')).digest().hex()
+            formpath = "{dbpath}/{form_name}.json".format(dbpath=dbpath, form_name = form_hash)
             print(formpath)
             if os.path.exists(formpath):
                 with open(formpath, "rb") as file:
@@ -287,6 +288,8 @@ class DailyCP:
                         # 这里的item是接口的得到的表单中的一项 l是本地表单中的一项
                         l = find(form, [['title', item['title']], [
                             'description', item['description']]])
+                        if(l==None):
+                            exit(1)
                         item['value'] = l['value']
                         for fieldItemsList in item['fieldItems']:
                             field = find(l['fieldItems'], [
@@ -318,10 +321,19 @@ if __name__ == "__main__":
     # if not app.login(sys.argv[2], sys.argv[3]):
     #     exit()
     # app.autoComplete(sys.argv[4], sys.argv[5])
-    app = DailyCP("合肥工业大学")
-    if not app.login("学号", "密码"):
+    # app = DailyCP("合肥工业大学")
+    # if not app.login("2017211856", "woshiwo33"):
+    #     exit()
+    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+
+
+    if len(sys.argv) != 6:
+        print("python3 DailyCp.py 学校全名 学号 密码 定位地址 formdb文件夹绝对路径")
         exit()
-    app.autoComplete("中国安徽省合肥市蜀山区丹霞路", ".")
+    app = DailyCP("合肥工业大学")
+    if not app.login(sys.argv[1], sys.argv[2]):
+        exit()
+    app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 # Author:HuangXu,FengXinYang,ZhouYuYang.
 # By:AUST HACKER

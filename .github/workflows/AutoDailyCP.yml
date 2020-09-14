@@ -32,4 +32,8 @@ jobs:
           pip3 list
 
       - name: Run python script
-        run: python3 DailyCP.py
+        env:
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+          python3 DailyCP.py ${ACCOUNT} ${PASSWORD}
