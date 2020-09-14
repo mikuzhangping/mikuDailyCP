@@ -327,8 +327,8 @@ if __name__ == "__main__":
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
-    if len(sys.argv) != 6:
-        print("python3 DailyCp.py 学校全名 学号 密码 定位地址 formdb文件夹绝对路径")
+    if len(sys.argv) != 2:
+        print("请设置secret参数")
         exit()
     app = DailyCP("合肥工业大学")
     if not app.login(sys.argv[1], sys.argv[2]):
