@@ -327,7 +327,7 @@ if __name__ == "__main__":
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("请设置secret参数\n")
         print("你提交的secret参数为：", sys.argv)
         exit()
