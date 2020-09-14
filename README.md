@@ -20,7 +20,7 @@
 
 在主页上方导航栏你将找到setting，进入后找到secret选项，在这里新建一个secret。
 ![secret1](https://github.com/mikuzhangping/mikuDailyCP/raw/master/picture/secret1.png)
-新建一个secret后你将看到如上页面，在name一栏中填ACCOUNT，value中填你的账号。接下来点击下面那个绿色按钮。此时你就将你的账号告诉了脚本。同样的步骤你还要告诉脚本你的密码。新建一个secret，在name一栏中填PASSWORD，value中填你的密码。
+新建一个secret后你将看到如上页面，在·name·一栏中填·ACCOUNT·，·value·中填你的·账号·。接下来点击下面那个绿色按钮。此时你就将你的账号告诉了脚本。同样的步骤你还要告诉脚本你的密码。新建一个secret，在·name·一栏中填·PASSWORD·，·value·中填你的·密码·。
 ![secret2](https://github.com/mikuzhangping/mikuDailyCP/raw/master/picture/secret2.png)
 
 第四步
