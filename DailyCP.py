@@ -328,7 +328,8 @@ if __name__ == "__main__":
 
 
     if len(sys.argv) != 2:
-        print("请设置secret参数")
+        print("请设置secret参数\n")
+        print("你提交的secret参数为：", sys.argv)
         exit()
     app = DailyCP("合肥工业大学")
     if not app.login(sys.argv[1], sys.argv[2]):
