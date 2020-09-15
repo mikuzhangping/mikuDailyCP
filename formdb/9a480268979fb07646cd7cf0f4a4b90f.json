@@ -1,7 +1,7 @@
 [
     {
-        "wid": "48614",
-        "formWid": "4176",
+        "wid": "49305",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "你目前是否在校",
         "description": "",
@@ -18,14 +18,14 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166383",
+                "itemWid": "168174",
                 "content": "是",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166384",
+                "itemWid": "168175",
                 "content": "否",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -34,8 +34,8 @@
         ]
     },
     {
-        "wid": "48615",
-        "formWid": "4176",
+        "wid": "49306",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "返校后的居住方式",
         "description": "",
@@ -52,14 +52,14 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166385",
+                "itemWid": "168176",
                 "content": "校内住宿",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166386",
+                "itemWid": "168177",
                 "content": "走读",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -68,8 +68,8 @@
         ]
     },
     {
-        "wid": "48616",
-        "formWid": "4176",
+        "wid": "49307",
+        "formWid": "4261",
         "fieldType": 1,
         "title": "你当前所在地",
         "description": "如在学校填写：安徽省合肥市蜀山区",
@@ -87,8 +87,8 @@
         "fieldItems": []
     },
     {
-        "wid": "48617",
-        "formWid": "4176",
+        "wid": "49308",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "您目前是否是新冠肺炎病例？（请以医疗部门诊断为准。）",
         "description": "",
@@ -105,28 +105,28 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166387",
+                "itemWid": "168178",
                 "content": "不是",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166388",
+                "itemWid": "168179",
                 "content": "确诊病例",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": null
             },
             {
-                "itemWid": "166389",
+                "itemWid": "168180",
                 "content": "疑似病例",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": null
             },
             {
-                "itemWid": "166390",
+                "itemWid": "168181",
                 "content": "无症状感染者",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -135,8 +135,8 @@
         ]
     },
     {
-        "wid": "48618",
-        "formWid": "4176",
+        "wid": "49309",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "您今天是否有感冒、咳嗽、呼吸困难等症状？（如有其中任意一种症状，请填有）",
         "description": "",
@@ -153,14 +153,14 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166391",
+                "itemWid": "168182",
                 "content": "无",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166392",
+                "itemWid": "168183",
                 "content": "有",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -169,8 +169,8 @@
         ]
     },
     {
-        "wid": "48619",
-        "formWid": "4176",
+        "wid": "49310",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "前一天午检体温",
         "description": "",
@@ -187,14 +187,14 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166393",
+                "itemWid": "168184",
                 "content": "正常，体温≤37.3℃",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166394",
+                "itemWid": "168185",
                 "content": "非正常，体温>37.3℃",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -203,8 +203,8 @@
         ]
     },
     {
-        "wid": "48620",
-        "formWid": "4176",
+        "wid": "49311",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "前一天晚检体温",
         "description": "",
@@ -221,14 +221,14 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166395",
+                "itemWid": "168186",
                 "content": "正常，体温≤37.3℃",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166396",
+                "itemWid": "168187",
                 "content": "非正常，体温>37.3℃",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -237,8 +237,8 @@
         ]
     },
     {
-        "wid": "48621",
-        "formWid": "4176",
+        "wid": "49312",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "今日晨检体温",
         "description": "",
@@ -255,14 +255,14 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166397",
+                "itemWid": "168188",
                 "content": "正常，体温≤37.3℃",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "166398",
+                "itemWid": "168189",
                 "content": "非正常，体温>37.3℃",
                 "isOtherItems": 0,
                 "contendExtend": null,
@@ -271,8 +271,8 @@
         ]
     },
     {
-        "wid": "48622",
-        "formWid": "4176",
+        "wid": "49313",
+        "formWid": "4261",
         "fieldType": 2,
         "title": "本人是否承诺以上所填报的全部内容均属实、准确，不存在任何隐瞒与不实的情况，更无遗漏之处。",
         "description": "",
@@ -289,7 +289,7 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "166399",
+                "itemWid": "168190",
                 "content": "是",
                 "isOtherItems": 0,
                 "contendExtend": null,

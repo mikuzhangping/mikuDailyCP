@@ -284,6 +284,7 @@ class DailyCP:
 
                     newForm = form
                     form = json.loads(file.read().decode("utf-8"))
+                   
                     for item in newForm:
                         # 这里的item是接口的得到的表单中的一项 l是本地表单中的一项
                         l = find(form, [['title', item['title']], [
@@ -305,7 +306,7 @@ class DailyCP:
                     file.write(json.dumps(
                         form, ensure_ascii=False).encode("utf-8"))
                     print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
-                    exit()
+                    exit(1)
 
         # confirmList = self.getNoticeList()
         # print("需要确认的表单\n", confirmList)
@@ -321,10 +322,6 @@ if __name__ == "__main__":
     # if not app.login(sys.argv[2], sys.argv[3]):
     #     exit()
     # app.autoComplete(sys.argv[4], sys.argv[5])
-    # app = DailyCP("合肥工业大学")
-    # if not app.login("2017211856", "woshiwo33"):
-    #     exit()
-    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
     if len(sys.argv) != 3:
@@ -338,10 +335,3 @@ if __name__ == "__main__":
 
 # Author:HuangXu,FengXinYang,ZhouYuYang.
 # By:AUST HACKER
-
-# 2020/5/20 重要更新：修复登录过程，移除验证码（不需要），优化代码格式，感谢giteee及时反馈。
-# 2020/5/28 更改为使用自动获取学校URL的方式，更改为使用参数形式，添加另一种登录形式AuthServer的支持(已完成但未测试)。感谢柠火的反馈。
-# 2020/6/1 修复BUG，发现AuthServer的登录方式每个学校都不一样。支持任意表单内容自定义（详情见输出信息和formdb/1129.json）。感谢涅灵的反馈。
-# 2020/6/2 AuthServer的登录网址不再使用硬编码的方式，理论上能支持所有学校了吧？感谢涅灵的反馈。
-# 2020/6/17 修复crontab使用中相对路径的问题。识别form特征。
-# 2020/7/5 浪费别人的时间是一种可耻的行为。
