@@ -306,6 +306,7 @@ class DailyCP:
                 with open(formpath, "wb") as file:
                     file.write(json.dumps(
                         form, ensure_ascii=False).encode("utf-8"))
+                    print(form_str)
                     print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
                     exit(1)
 
@@ -333,7 +334,7 @@ if __name__ == "__main__":
     #         form, ensure_ascii=False).encode("utf-8"))
     #     # print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
     #     exit(0)
-    
+
     # app = DailyCP("合肥工业大学")
     # if not app.login("2017211", "woshiwo33"):
     #     exit()
