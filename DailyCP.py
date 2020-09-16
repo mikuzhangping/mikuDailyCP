@@ -261,8 +261,8 @@ class DailyCP:
             form = self.getCollectorFormFiled(
                 detail["collector"]["formWid"], detail["collector"]["wid"])
             form_str = json.dumps(form)
-            form_hash  = hashlib.md5(form_str.encode('utf-8')).digest().hex()
-            formpath = "{dbpath}/{form_name}.json".format(dbpath=dbpath, form_name = form_hash)
+            # form_hash  = hashlib.md5(form_str.encode('utf-8')).digest().hex()
+            formpath = "{dbpath}/{form_name}.json".format(dbpath=dbpath, form_name = item['senderUserName'])
             print(formpath)
             if os.path.exists(formpath):
                 with open(formpath, "rb") as file:
@@ -291,6 +291,11 @@ class DailyCP:
                         l = find(form, [['title', item['title']], [
                             'description', item['description']]])
                         if(l==None):
+                            with open(formpath, "wb") as file:
+                                file.write(json.dumps(
+                                form, ensure_ascii=False).encode("utf-8"))
+                                print(form_str)
+                                print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
                             exit(1)
                         item['value'] = l['value']
                         for fieldItemsList in item['fieldItems']:
@@ -336,7 +341,7 @@ if __name__ == "__main__":
     #     exit(0)
 
     # app = DailyCP("合肥工业大学")
-    # if not app.login("2017211", "woshiwo33"):
+    # if not app.login("", "woshiwo33"):
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
