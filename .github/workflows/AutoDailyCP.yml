@@ -10,7 +10,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: 0 0 * * *
+    - cron: 30 10 * * *
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,7 +33,5 @@ jobs:
 
       - name: Run python script
         env:
-          ACCOUNT: ${{ secrets.ACCOUNT }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run: |
-          python3 DailyCP.py ${ACCOUNT} ${PASSWORD}
+            INFO: ${{ secrets.INFO }}
+        run: python3 DailyCP.py ${INFO}

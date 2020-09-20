@@ -341,19 +341,23 @@ if __name__ == "__main__":
     #     exit(0)
 
     # app = DailyCP("合肥工业大学")
-    # if not app.login("", "woshiwo33"):
+    # if not app.login("856", "woshiwo33"):
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
-    if len(sys.argv) != 3:
-        print("请设置secret参数\n")
-        print("你提交的secret参数为：", sys.argv)
-        exit()
-    app = DailyCP("合肥工业大学")
-    if not app.login(sys.argv[1], sys.argv[2]):
-        exit()
-    app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+    i=1
+    while i < len(sys.argv) :
+        print(sys.argv[i])
+        # print(sys.argv[i+1])
+        app = DailyCP("合肥工业大学")
+        if not app.login(sys.argv[i], sys.argv[i+1]):
+            print("登陆失败")
+            exit()
+        else:
+            print("登陆成功")
+        app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+        i+=2
 
 # Author:HuangXu,FengXinYang,ZhouYuYang.
 # By:AUST HACKER

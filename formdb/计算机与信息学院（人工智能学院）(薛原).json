@@ -1,16 +1,16 @@
 [
     {
-        "wid": "48237",
-        "formWid": "4127",
+        "wid": "51358",
+        "formWid": "4519",
         "fieldType": 2,
-        "title": "你目前是否在校 (必填) （必填）",
-        "description": "",
+        "title": "本学期你是否已返校报到？",
+        "description": "返校报到后因事请假又离校的均算已经返校报到。一直未返校报到的请选择其他，并注明未返校报到的原因。",
         "minLength": 0,
         "sort": "1",
         "maxLength": null,
         "isRequired": 1,
         "imageCount": null,
-        "hasOtherItems": 0,
+        "hasOtherItems": 1,
         "colName": "field001",
         "value": "",
         "minValue": 0.0,
@@ -18,33 +18,33 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "165308",
-                "content": "是",
+                "itemWid": "174393",
+                "content": "是，已报到",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "165309",
-                "content": "否",
-                "isOtherItems": 0,
+                "itemWid": "174394",
+                "content": "其他",
+                "isOtherItems": 1,
                 "contendExtend": null,
                 "isSelected": null
             }
         ]
     },
     {
-        "wid": "48238",
-        "formWid": "4127",
+        "wid": "51359",
+        "formWid": "4519",
         "fieldType": 2,
-        "title": "返校后的居住方式 (必填) （必填）",
-        "description": "",
+        "title": "你是否是走读学生？",
+        "description": "走读学生为经学校审核批准，不在校内宿舍集中住宿需每天进出校园的同学。走读学生请选择其他，并注明详细住址。",
         "minLength": 0,
         "sort": "2",
         "maxLength": null,
         "isRequired": 1,
         "imageCount": null,
-        "hasOtherItems": 0,
+        "hasOtherItems": 1,
         "colName": "field002",
         "value": "",
         "minValue": 0.0,
@@ -52,52 +52,74 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "165310",
-                "content": "校内住宿",
+                "itemWid": "174395",
+                "content": "否",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "165311",
-                "content": "走读",
-                "isOtherItems": 0,
+                "itemWid": "174396",
+                "content": "其他",
+                "isOtherItems": 1,
                 "contendExtend": null,
                 "isSelected": null
             }
         ]
     },
     {
-        "wid": "48239",
-        "formWid": "4127",
-        "fieldType": 1,
-        "title": "你当前所在地 (必填) （必填）",
-        "description": "如在学校填写：安徽省合肥市蜀山区",
-        "minLength": 1,
+        "wid": "51360",
+        "formWid": "4519",
+        "fieldType": 2,
+        "title": "今天你是否请假离校？",
+        "description": "当天一直未离开校园请选择“否，一直在校”；走读学生请选择“走读学生”；校内住宿学生请假出校的请选择“其他”，并填写离校事由、目的地和返回校园的时间。",
+        "minLength": 0,
         "sort": "3",
-        "maxLength": 300,
+        "maxLength": null,
         "isRequired": 1,
-        "imageCount": -2,
-        "hasOtherItems": 0,
+        "imageCount": null,
+        "hasOtherItems": 1,
         "colName": "field003",
-        "value": "安徽省/合肥市/蜀山区",
+        "value": "",
         "minValue": 0.0,
         "maxValue": 0.0,
         "isDecimal": true,
-        "fieldItems": []
+        "fieldItems": [
+            {
+                "itemWid": "174397",
+                "content": "否，一直在校",
+                "isOtherItems": 0,
+                "contendExtend": null,
+                "isSelected": 1
+            },
+            {
+                "itemWid": "174398",
+                "content": "走读学生",
+                "isOtherItems": 0,
+                "contendExtend": null,
+                "isSelected": null
+            },
+            {
+                "itemWid": "174399",
+                "content": "其他",
+                "isOtherItems": 1,
+                "contendExtend": null,
+                "isSelected": null
+            }
+        ]
     },
     {
-        "wid": "48240",
-        "formWid": "4127",
+        "wid": "51361",
+        "formWid": "4519",
         "fieldType": 2,
-        "title": "您目前是否是新冠肺炎病例？（请以医疗部门诊断为准。） (必填) （必填）",
-        "description": "",
+        "title": "今天你是否有发热症状？",
+        "description": "发热为额温≥37.3℃或者腋温≦36.8℃，有发热症状请选择其他，并注明体温最高值。",
         "minLength": 0,
         "sort": "4",
         "maxLength": null,
         "isRequired": 1,
         "imageCount": null,
-        "hasOtherItems": 0,
+        "hasOtherItems": 1,
         "colName": "field004",
         "value": "",
         "minValue": 0.0,
@@ -105,41 +127,27 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "165312",
-                "content": "不是",
+                "itemWid": "174400",
+                "content": "无",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": 1
             },
             {
-                "itemWid": "165313",
-                "content": "确诊病例",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": null
-            },
-            {
-                "itemWid": "165314",
-                "content": "疑似病例",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": null
-            },
-            {
-                "itemWid": "165315",
-                "content": "无症状感染者",
-                "isOtherItems": 0,
+                "itemWid": "174401",
+                "content": "其他",
+                "isOtherItems": 1,
                 "contendExtend": null,
                 "isSelected": null
             }
         ]
     },
     {
-        "wid": "48241",
-        "formWid": "4127",
+        "wid": "51362",
+        "formWid": "4519",
         "fieldType": 2,
-        "title": "您今天是否有感冒、咳嗽、呼吸困难等症状？（如有其中任意一种症状，请填有） (必填) （必填）",
-        "description": "",
+        "title": "今天你是否有咳嗽、呼吸困难、腹泻症状？",
+        "description": "只要有其中一个症状就选择有，没有选择无。",
         "minLength": 0,
         "sort": "5",
         "maxLength": null,
@@ -153,148 +161,38 @@
         "isDecimal": true,
         "fieldItems": [
             {
-                "itemWid": "165316",
-                "content": "无",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": 1
-            },
-            {
-                "itemWid": "165317",
+                "itemWid": "174402",
                 "content": "有",
                 "isOtherItems": 0,
                 "contendExtend": null,
                 "isSelected": null
+            },
+            {
+                "itemWid": "174403",
+                "content": "无",
+                "isOtherItems": 0,
+                "contendExtend": null,
+                "isSelected": 1
             }
         ]
     },
     {
-        "wid": "48242",
-        "formWid": "4127",
-        "fieldType": 2,
-        "title": "前一天午检体温 (必填) （必填）",
-        "description": "",
-        "minLength": 0,
+        "wid": "51363",
+        "formWid": "4519",
+        "fieldType": 1,
+        "title": "你目前所在地区？",
+        "description": "翡翠湖校区的所在地为蜀山区",
+        "minLength": 1,
         "sort": "6",
-        "maxLength": null,
+        "maxLength": 300,
         "isRequired": 1,
-        "imageCount": null,
+        "imageCount": -2,
         "hasOtherItems": 0,
         "colName": "field006",
-        "value": "",
+        "value": "安徽省/合肥市/蜀山区",
         "minValue": 0.0,
         "maxValue": 0.0,
         "isDecimal": true,
-        "fieldItems": [
-            {
-                "itemWid": "165318",
-                "content": "正常，体温≤37.3℃",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": 1
-            },
-            {
-                "itemWid": "165319",
-                "content": "非正常，体温>37.3℃",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": null
-            }
-        ]
-    },
-    {
-        "wid": "48243",
-        "formWid": "4127",
-        "fieldType": 2,
-        "title": "前一天晚检体温 (必填) （必填）",
-        "description": "",
-        "minLength": 0,
-        "sort": "7",
-        "maxLength": null,
-        "isRequired": 1,
-        "imageCount": null,
-        "hasOtherItems": 0,
-        "colName": "field007",
-        "value": "",
-        "minValue": 0.0,
-        "maxValue": 0.0,
-        "isDecimal": true,
-        "fieldItems": [
-            {
-                "itemWid": "165320",
-                "content": "正常，体温≤37.3℃",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": 1
-            },
-            {
-                "itemWid": "165321",
-                "content": "非正常，体温>37.3℃",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": null
-            }
-        ]
-    },
-    {
-        "wid": "48244",
-        "formWid": "4127",
-        "fieldType": 2,
-        "title": "今日晨检体温 (必填) （必填）",
-        "description": "",
-        "minLength": 0,
-        "sort": "8",
-        "maxLength": null,
-        "isRequired": 1,
-        "imageCount": null,
-        "hasOtherItems": 0,
-        "colName": "field008",
-        "value": "",
-        "minValue": 0.0,
-        "maxValue": 0.0,
-        "isDecimal": true,
-        "fieldItems": [
-            {
-                "itemWid": "165322",
-                "content": "正常，体温≤37.3℃",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": 1
-            },
-            {
-                "itemWid": "165323",
-                "content": "非正常，体温>37.3℃",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": null
-            }
-        ]
-    },
-    {
-        "wid": "48245",
-        "formWid": "4127",
-        "fieldType": 2,
-        "title": "本人是否承诺以上所填报的全部内容均属实、准确，不存在任何隐瞒与不实的情况，更无遗漏之处。 (必填)",
-        "description": "",
-        "minLength": 0,
-        "sort": "9",
-        "maxLength": null,
-        "isRequired": 1,
-        "imageCount": null,
-        "hasOtherItems": 0,
-        "colName": "field009",
-        "value": "",
-        "minValue": 0.0,
-        "maxValue": 0.0,
-        "isDecimal": true,
-        "fieldItems": [
-            {
-                "itemWid": "165324",
-                "content": "是",
-                "isOtherItems": 0,
-                "contendExtend": null,
-                "isSelected": 1
-            }
-        ]
+        "fieldItems": []
     }
 ]
