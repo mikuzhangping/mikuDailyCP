@@ -260,10 +260,10 @@ class DailyCP:
             detail = self.getCollectorDetail(item["wid"])
             form = self.getCollectorFormFiled(
                 detail["collector"]["formWid"], detail["collector"]["wid"])
-            form_str = json.dumps(form)
+            form_str = json.dumps(form, ensure_ascii=False)
             # form_hash  = hashlib.md5(form_str.encode('utf-8')).digest().hex()
             formpath = "{dbpath}/{form_name}.json".format(dbpath=dbpath, form_name = item['senderUserName'])
-            print(formpath)
+            print("使用的本地表单地址：", formpath)
             if os.path.exists(formpath):
                 with open(formpath, "rb") as file:
                     def find(l, key_valueList: list):
@@ -281,18 +281,16 @@ class DailyCP:
                             if b:  # 找到了就立马返回本地表单中的对应项
                                 return item
                         return None
-
+                    
                     newForm = form
-                    form = json.loads(file.read().decode("utf-8"))
-                    form_str = json.dumps(form)
-                    form_hash  = hashlib.md5(form_str.encode('utf-8')).digest().hex()
+
                     for item in newForm:
                         # 这里的item是接口的得到的表单中的一项 l是本地表单中的一项
                         l = find(form, [['title', item['title']], [
                             'description', item['description']]])
                         if(l==None):
-                            with open(formpath, "wb") as file:
-                                file.write(json.dumps(
+                            with open(formpath, "wb") as file1:
+                                file1.write(json.dumps(
                                 form, ensure_ascii=False).encode("utf-8"))
                                 print(form_str)
                                 print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
@@ -308,8 +306,8 @@ class DailyCP:
                 self.submitCollectorForm(detail["collector"]["formWid"], detail["collector"]
                                          ["wid"], detail["collector"]["schoolTaskWid"], form, address)
             else:
-                with open(formpath, "wb") as file:
-                    file.write(json.dumps(
+                with open(formpath, "wb") as file2:
+                    file2.write(json.dumps(
                         form, ensure_ascii=False).encode("utf-8"))
                     print(form_str)
                     print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
