@@ -328,16 +328,6 @@ if __name__ == "__main__":
     #     exit()
     # app.autoComplete(sys.argv[4], sys.argv[5])
 
-    # with open( "./formdb/2752a149d7f1ccc95cf80c804c24aa2d.json", "rb") as file:
-    #     form = json.loads(file.read().decode("utf-8"))
-    #     form_str = json.dumps(form)
-    #     form_hash  = hashlib.md5(form_str.encode('utf-8')).digest().hex()
-    # with open("./formdb/"+form_hash+".json", "wb") as file:
-    #     file.write(json.dumps(
-    #         form, ensure_ascii=False).encode("utf-8"))
-    #     # print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
-    #     exit(0)
-
     # app = DailyCP("合肥工业大学")
     # if not app.login("856", "woshiwo33"):
     #     exit()
