@@ -283,7 +283,7 @@ class DailyCP:
                         return None
                     
                     newForm = form
-
+                    form = json.loads(file.read().decode("utf-8"))
                     for item in newForm:
                         # 这里的item是接口的得到的表单中的一项 l是本地表单中的一项
                         l = find(form, [['title', item['title']], [
@@ -329,7 +329,12 @@ if __name__ == "__main__":
     # app.autoComplete(sys.argv[4], sys.argv[5])
 
     # app = DailyCP("合肥工业大学")
-    # if not app.login("856", "woshiwo33"):
+    # if not app.login("856", "wo33"):
+    #     exit()
+    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+
+    # app = DailyCP("合肥工业大学")
+    # if not app.login("943", "146911."):
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
