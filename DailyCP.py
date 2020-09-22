@@ -286,15 +286,14 @@ class DailyCP:
                     form = json.loads(file.read().decode("utf-8"))
                     for item in newForm:
                         # 这里的item是接口的得到的表单中的一项 l是本地表单中的一项
-                        l = find(form, [['title', item['title']], [
-                            'description', item['description']]])
+                        l = find(form, [['title', item['title']]])
                         if(l==None):
                             with open(formpath, "wb") as file1:
                                 file1.write(json.dumps(
                                 form, ensure_ascii=False).encode("utf-8"))
                                 print(form_str)
                                 print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
-                            exit(1)
+                            exit(0)
                         item['value'] = l['value']
                         for fieldItemsList in item['fieldItems']:
                             field = find(l['fieldItems'], [
@@ -311,7 +310,7 @@ class DailyCP:
                         form, ensure_ascii=False).encode("utf-8"))
                     print(form_str)
                     print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
-                    exit(1)
+                    exit(0)
 
         # confirmList = self.getNoticeList()
         # print("需要确认的表单\n", confirmList)
@@ -329,7 +328,7 @@ if __name__ == "__main__":
     # app.autoComplete(sys.argv[4], sys.argv[5])
 
     # app = DailyCP("合肥工业大学")
-    # if not app.login("856", "wo33"):
+    # if not app.login("856", "shiwo33"):
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
