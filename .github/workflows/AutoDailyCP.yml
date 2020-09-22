@@ -36,8 +36,8 @@ jobs:
             INFO: ${{ secrets.INFO }}
         run: python3 DailyCP.py ${INFO}
         
-      - name : Upload formdb
-        uses: actions/upload-artifact@master
-        with:
-          name: formdb
-          path: formdb
+      # - name : Upload formdb
+      #   uses: actions/upload-artifact@master
+      #   with:
+      #     name: formdb
+      #     path: formdb

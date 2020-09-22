@@ -293,7 +293,7 @@ class DailyCP:
                                 form, ensure_ascii=False).encode("utf-8"))
                                 print(form_str)
                                 print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
-                            exit(0)
+                            exit(1)
                         item['value'] = l['value']
                         for fieldItemsList in item['fieldItems']:
                             field = find(l['fieldItems'], [
@@ -310,7 +310,7 @@ class DailyCP:
                         form, ensure_ascii=False).encode("utf-8"))
                     print(form_str)
                     print("请手动填写{formpath}，之后重新运行脚本".format(formpath=formpath))
-                    exit(0)
+                    exit(1)
 
         # confirmList = self.getNoticeList()
         # print("需要确认的表单\n", confirmList)
