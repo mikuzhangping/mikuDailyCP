@@ -246,6 +246,7 @@ class DailyCP:
         ret = self.request(
             "https://{host}/wec-counselor-collector-apps/stu/collector/submitForm", body)
         print(ret["message"])
+        print("\n\n")
         return ret["message"] == "SUCCESS"
 
     def getFormCharac(self, detail):
