@@ -338,6 +338,11 @@ if __name__ == "__main__":
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
+    # app = DailyCP("合肥工业大学")
+    # if not app.login("823", "861323myqq"):
+    #     exit()
+    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+
 
     i=1
     while i < len(sys.argv) :
