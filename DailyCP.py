@@ -325,18 +325,9 @@ if __name__ == "__main__":
     # if len(sys.argv) != 6:
     #     print("python3 DailyCp.py 学校全名 学号 密码 定位地址 formdb文件夹绝对路径")
     #     exit()
-    # app = DailyCP("安徽理工大学")
-    # if not app.login("2020200275", "123456"):
-    #     exit()
-    # app.autoComplete("外太空", "./formdb")
 
     # app = DailyCP("合肥工业大学")
     # if not app.login("856", "shiwo33"):
-    #     exit()
-    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
-
-    # app = DailyCP("合肥工业大学")
-    # if not app.login("2017211931", "14525418edu"):
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
