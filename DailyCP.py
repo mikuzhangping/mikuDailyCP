@@ -255,8 +255,10 @@ class DailyCP:
 
     def autoComplete(self, address, dbpath):
         collectList = self.getCollectorList()
+        collectList = [collectList[0]]
         print("需要确认的表单\n", collectList)
         for item in collectList:
+            
             # if item["isHandled"] == True:continue
             detail = self.getCollectorDetail(item["wid"])
             form = self.getCollectorFormFiled(
@@ -323,39 +325,34 @@ if __name__ == "__main__":
     # if len(sys.argv) != 6:
     #     print("python3 DailyCp.py 学校全名 学号 密码 定位地址 formdb文件夹绝对路径")
     #     exit()
-    # app = DailyCP(sys.argv[1])
-    # if not app.login(sys.argv[2], sys.argv[3]):
+    # app = DailyCP("安徽理工大学")
+    # if not app.login("2020200275", "123456"):
     #     exit()
-    # app.autoComplete(sys.argv[4], sys.argv[5])
+    # app.autoComplete("外太空", "./formdb")
 
     # app = DailyCP("合肥工业大学")
     # if not app.login("856", "shiwo33"):
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
-    # app = DailyCP("合肥工业大学")
-    # if not app.login("943", "146911."):
-    #     exit()
-    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
-
-    # app = DailyCP("合肥工业大学")
-    # if not app.login("823", "861323myqq"):
-    #     exit()
-    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+    app = DailyCP("合肥工业大学")
+    if not app.login("2017211931", "14525418edu"):
+        exit()
+    app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
-    i=1
-    while i < len(sys.argv) :
-        print(sys.argv[i])
-        # print(sys.argv[i+1])
-        app = DailyCP("合肥工业大学")
-        if not app.login(sys.argv[i], sys.argv[i+1]):
-            print("登陆失败")
-            exit()
-        else:
-            print("登陆成功")
-        app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
-        i+=2
+    # i=1
+    # while i < len(sys.argv) :
+    #     print(sys.argv[i])
+    #     # print(sys.argv[i+1])
+    #     app = DailyCP("合肥工业大学")
+    #     if not app.login(sys.argv[i], sys.argv[i+1]):
+    #         print("登陆失败")
+    #         exit()
+    #     else:
+    #         print("登陆成功")
+    #     app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+    #     i+=2
 
 # Author:HuangXu,FengXinYang,ZhouYuYang.
 # By:AUST HACKER
