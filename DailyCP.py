@@ -255,11 +255,11 @@ class DailyCP:
 
     def autoComplete(self, address, dbpath):
         collectList = self.getCollectorList()
-        collectList = [collectList[0]]
+        # collectList = [collectList[0]]
         print("需要确认的表单\n", collectList)
         for item in collectList:
             
-            # if item["isHandled"] == True:continue
+            if item["isHandled"] == True:continue
             detail = self.getCollectorDetail(item["wid"])
             form = self.getCollectorFormFiled(
                 detail["collector"]["formWid"], detail["collector"]["wid"])
@@ -335,24 +335,24 @@ if __name__ == "__main__":
     #     exit()
     # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
-    app = DailyCP("合肥工业大学")
-    if not app.login("2017211931", "14525418edu"):
-        exit()
-    app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+    # app = DailyCP("合肥工业大学")
+    # if not app.login("2017211931", "14525418edu"):
+    #     exit()
+    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
-    # i=1
-    # while i < len(sys.argv) :
-    #     print(sys.argv[i])
-    #     # print(sys.argv[i+1])
-    #     app = DailyCP("合肥工业大学")
-    #     if not app.login(sys.argv[i], sys.argv[i+1]):
-    #         print("登陆失败")
-    #         exit()
-    #     else:
-    #         print("登陆成功")
-    #     app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
-    #     i+=2
+    i=1
+    while i < len(sys.argv) :
+        print(sys.argv[i])
+        # print(sys.argv[i+1])
+        app = DailyCP("合肥工业大学")
+        if not app.login(sys.argv[i], sys.argv[i+1]):
+            print("登陆失败")
+            exit()
+        else:
+            print("登陆成功")
+        app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+        i+=2
 
 # Author:HuangXu,FengXinYang,ZhouYuYang.
 # By:AUST HACKER
