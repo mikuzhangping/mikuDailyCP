@@ -1,8 +1,7 @@
 
 # 今日校园自动签到脚本  
 
-该项目是AUST的HuangXu,FengXinYang,ZhouYuYang所写的自动签到脚本的HFUT定制版本，简化了使用方法。项目源地址为<https://gitee.com/Finch1/FuckDailyCP>。下面介绍本项目的使用方法。<br>
-脚本使用过程中出现任何问题请在本项目下提出issue，我会抽时间解决。
+本脚本已失效请于原项目下寻求帮助。该项目是AUST的HuangXu,FengXinYang,ZhouYuYang所写的自动签到脚本的HFUT定制版本，简化了使用方法。项目源地址为<https://gitee.com/Finch1/FuckDailyCP>。下面介绍本项目的使用方法。
 
 ## 使用方法
 
