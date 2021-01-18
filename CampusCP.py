@@ -2,8 +2,9 @@ import sys
 import requests
 import json
 import time
+import retrying
 
-
+@retrying.retry(tries=3, delay=2)
 def login(session_temp, username, password):
     session_temp.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -54,7 +55,7 @@ def login(session_temp, username, password):
     return ret["code"]
     pass
 
-
+@retrying.retry(tries=3, delay=2)
 def fill_form(session_temp):
     # getStuXx.do
     session_temp.headers.update({"Accept": "application/json, text/plain, */*"})
