@@ -90,4 +90,5 @@ if __name__ == "__main__":
             exit(1)
         i += 2
         print(fill_form(session))
+        session.close()
         print()
