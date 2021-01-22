@@ -6,11 +6,12 @@
     "configurations": [
     
         {
-            "name": "Python",
+            "name": "Python_debug",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "args": ["2017211931", "10150431", "2017211943", "07190610"]
         }
     ]
 }
