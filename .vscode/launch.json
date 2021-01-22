@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["2017211931", "10150431", "2017211943", "07190610"]
+            "args": []
         }
     ]
 }
