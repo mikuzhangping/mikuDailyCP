@@ -57,13 +57,12 @@ class DailyCP:
         self.loginUrl = ""
         self.isIAPLogin = True
         self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/83.0.4103.61 Safari/537.36 Edg/83.0.478.37",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36 Edg/83.0.478.37",
             # "X-Requested-With": "XMLHttpRequest",
             "Pragma": "no-cache",
             "Accept": "application/json, text/plain, */*",
-            # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,
-            # application/signed-exchange;v=b3;q=0.9", "User-Agent": "okhttp/3.12.4"
+            # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+            # "User-Agent": "okhttp/3.12.4"
         })
         extension = {"deviceId": str(uuid.uuid4()), "systemName": "未来操作系统", "userId": "5201314",
                      "appVersion": "8.1.13", "model": "红星一号量子计算机", "lon": 0.0, "systemVersion": "初号机", "lat": 0.0}
@@ -94,6 +93,17 @@ class DailyCP:
                       pad=None, padmode=pyDes.PAD_PKCS5)
         ret = k.encrypt(text)
         return base64.b64encode(ret).decode()
+
+    def passwordEncrypt(self, text: str, key: str):
+        def pad(s): return s + (len(key) - len(s) %
+                                len(key)) * chr(len(key) - len(s) % len(key))
+
+        def unpad(s): return s[:-ord(s[len(s) - 1:])]
+        text = pad(
+            "TdEEGazAXQMBzEAisrYaxRRax5kmnMJnpbKxcE6jxQfWRwP2J78adKYm8WzSkfXJ"+text).encode("utf-8")
+        aes = AES.new(str.encode(key), AES.MODE_CBC,
+                      str.encode("ya8C45aRrBEn8sZH"))
+        return base64.b64encode(aes.encrypt(text))
 
     def request(self, url: str, body=None, parseJson=True, JsonBody=True, Referer=None):
         url = url.format(host=self.host)
@@ -144,8 +154,7 @@ class DailyCP:
 
         ret = self.session.get(
             "https://{host}/iap/login?service=https://{host}/portal/login".format(host=self.host)).url
-        client = ret[ret.find("=") + 1:]
-        # 他自己写的request中自动把{host}替换成self.host
+        client = ret[ret.find("=")+1:]
         ret = self.request("https://{host}/iap/security/lt",
                            "lt={client}".format(client=client), True, False)
         client = ret["result"]["_lt"]
@@ -168,9 +177,8 @@ class DailyCP:
             return False
 
     def checkNeedCaptchaAuthServer(self, username):
-        ret = self.request(
-            "http://{host}/authserver/needCaptcha.html?username={username}&pwdEncrypt2=pwdEncryptSalt".format(
-                username=username), parseJson=False).text
+        ret = self.request("http://{host}/authserver/needCaptcha.html?username={username}&pwdEncrypt2=pwdEncryptSalt".format(
+            username=username), parseJson=False).text
         return ret == "true"
 
     def loginAuthserver(self, username, password, captcha=""):
@@ -182,7 +190,7 @@ class DailyCP:
         body["username"] = username
         body["dllt"] = "userNamePasswordLogin"
         if "pwdDefaultEncryptSalt" in salt.keys():
-            body["password"] = passwordEncrypt(
+            body["password"] = self.passwordEncrypt(
                 password, salt["pwdDefaultEncryptSalt"])
         else:
             body["password"] = password
@@ -232,8 +240,7 @@ class DailyCP:
             "formWid": formWid,
             "collectorWid": collectorWid
         }
-        return self.request("https://{host}/wec-counselor-collector-apps/stu/collector/getFormFields", body)["datas"][
-            "rows"]
+        return self.request("https://{host}/wec-counselor-collector-apps/stu/collector/getFormFields", body)["datas"]["rows"]
 
     def submitCollectorForm(self, formWid, collectWid, schoolTaskWid, rows, address):
         body = {
@@ -241,17 +248,27 @@ class DailyCP:
             "collectWid": collectWid,
             "schoolTaskWid": schoolTaskWid,
             "form": rows,
-            "address": address
+            "address": address,
+            "uaIsCpadaily":True
         }
         ret = self.request(
             "https://{host}/wec-counselor-collector-apps/stu/collector/submitForm", body)
         print(ret["message"])
-        print("\n\n")
         return ret["message"] == "SUCCESS"
+
+    def autoFill(self, rows):
+        for item in rows:
+            index = 0
+            while index < len(item["fieldItems"]):
+                if item["fieldItems"][index]["isSelected"] == 1:
+                    index = index + 1
+                else:
+                    item["fieldItems"].pop(index)
 
     def getFormCharac(self, detail):
         ret = self.request(detail["content"], parseJson=False, JsonBody=False)
         return hashlib.md5(ret.content).digest().hex()
+
 
     def autoComplete(self, address, dbpath):
         collectList = self.getCollectorList()
@@ -326,24 +343,24 @@ if __name__ == "__main__":
     #     print("python3 DailyCp.py 学校全名 学号 密码 定位地址 formdb文件夹绝对路径")
     #     exit()
 
-    # app = DailyCP("合肥工业大学")
-    # if not app.login("856", "shiwo33"):
-    #     exit()
-    # app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+    app = DailyCP("合肥工业大学")
+    if not app.login("2017", "145"):
+        exit()
+    app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
 
 
-    i=1
-    while i < len(sys.argv) :
-        print(sys.argv[i])
-        # print(sys.argv[i+1])
-        app = DailyCP("合肥工业大学")
-        if not app.login(sys.argv[i], sys.argv[i+1]):
-            print("登陆失败")
-            exit()
-        else:
-            print("登陆成功")
-        app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
-        i+=2
+    # i=1
+    # while i < len(sys.argv) :
+    #     print(sys.argv[i])
+    #     # print(sys.argv[i+1])
+    #     app = DailyCP("合肥工业大学")
+    #     if not app.login(sys.argv[i], sys.argv[i+1]):
+    #         print("登陆失败")
+    #         exit()
+    #     else:
+    #         print("登陆成功")
+    #     app.autoComplete("中国安徽省合肥市蜀山区丹霞路", "./formdb")
+    #     i+=2
 
 # Author:HuangXu,FengXinYang,ZhouYuYang.
 # By:AUST HACKER
