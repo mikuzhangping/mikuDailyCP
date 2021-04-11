@@ -1,5 +1,5 @@
 .vscode/
 
-DailyCP.py
-DailyCP_new.py
+DailyCP*.py
 test.js
+temp.json
