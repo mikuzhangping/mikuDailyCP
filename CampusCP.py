@@ -7,7 +7,7 @@ import pytz
 import base64
 from Crypto.Cipher import AES
 from requests.sessions import session
-
+import retry
 
 class hfuter:
     def __init__(self, username, password) -> None:
@@ -181,6 +181,7 @@ class hfuter:
 
         return info['data']
 
+    @retry.retry(tries=3, delay=2)
     def daily_checkin(self) -> bool:
         if not self.logged_in:
             return False
@@ -199,7 +200,7 @@ class hfuter:
         )
         self.session.headers.pop("Content-Type")
         self.session.headers.pop("X-Requested-With")
-
+        
         ret = self.session.get(
             "http://stu.hfut.edu.cn/xsfw/sys/emapfunauth/casValidate.do",
             params={
